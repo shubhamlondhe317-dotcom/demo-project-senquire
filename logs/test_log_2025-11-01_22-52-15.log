@@ -1,0 +1,6 @@
+2025-11-01 22:52:20,016 - INFO - Launched the login page
+2025-11-01 22:52:21,027 - INFO - Captured success message: You logged into a secure area!
+×
+2025-11-01 22:52:21,360 - INFO - Launched the login page with invalid credentials
+2025-11-01 22:52:22,208 - INFO - Captured error message: Your username is invalid!
+×

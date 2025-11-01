@@ -1,0 +1,32 @@
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+class LoginPage:
+    USERNAME = (By.ID, "username")
+    PASSWORD = (By.ID, "password")
+    LOGIN_BTN = (By.CSS_SELECTOR, "button[type='submit']")
+    SUCCESS_MSG = (By.CSS_SELECTOR, "div.flash.success")
+    ERROR_MSG = (By.CSS_SELECTOR, "div.flash.error")
+
+    def __init__(self, driver):
+        self.driver = driver
+
+    def enter_username(self, username):
+        self.driver.find_element(*self.USERNAME).send_keys(username)
+
+    def enter_password(self, password):
+        self.driver.find_element(*self.PASSWORD).send_keys(password)
+
+    def click_login(self):
+        self.driver.find_element(*self.LOGIN_BTN).click()
+
+    def get_success_message(self):
+        return WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(self.SUCCESS_MSG)
+        ).text
+
+    def get_error_message(self):
+        return WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(self.ERROR_MSG)
+        ).text
