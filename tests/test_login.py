@@ -20,7 +20,7 @@ class TestLogin:
         login_page.enter_password(read_config("DEFAULT", "password"))
         login_page.click_login()
 
-        login_page.handle_change_password_popup()
+        # login_page.handle_change_password_popup()
         success_message = login_page.get_success_message()
         self.logger.info("Captured success message: " + success_message)
 
