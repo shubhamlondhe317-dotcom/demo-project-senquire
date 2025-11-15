@@ -1,3 +1,4 @@
+from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -30,3 +31,19 @@ class LoginPage:
         return WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(self.ERROR_MSG)
         ).text
+
+    def handle_change_password_popup(self):
+        try:
+            WebDriverWait(self.driver, 5).until(
+                EC.presence_of_element_located(
+                    (By.XPATH, "//*[contains(text(),'Change Password') or contains(@class,'change-password')]")
+                )
+            )
+            print("Change Password popup detected — closing it.")
+            # Try clicking close/cancel/skip
+            close_btn = self.driver.find_element(
+                By.XPATH, "//button[contains(text(),'Cancel') or contains(text(),'Skip') or contains(text(),'Close')]"
+            )
+            close_btn.click()
+        except TimeoutException:
+            print("No change password popup appeared.")
