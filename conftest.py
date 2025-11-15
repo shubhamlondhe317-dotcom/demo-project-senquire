@@ -9,6 +9,10 @@ def setup(request):
     if browser == "chrome":
         options = Options()
         options.add_argument("--start-maximized")
+<<<<<<< HEAD
+=======
+        # options.add_argument("--start-maximized")
+>>>>>>> b83f474a50440dbb52ff4e11b09ab69717fc41ac
         options.add_argument("--headless=new")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
