@@ -32,10 +32,7 @@ class LoginPage:
             EC.visibility_of_element_located(self.ERROR_MSG)
         ).text
 
-<<<<<<< HEAD
-=======
-    # 🔹 New method to handle change password popup
->>>>>>> b83f474a50440dbb52ff4e11b09ab69717fc41ac
+
     def handle_change_password_popup(self):
         try:
             WebDriverWait(self.driver, 5).until(
@@ -50,8 +47,6 @@ class LoginPage:
             )
             close_btn.click()
         except TimeoutException:
-<<<<<<< HEAD
+
             print("No change password popup appeared.")
-=======
             print("No change password popup appeared.")
->>>>>>> b83f474a50440dbb52ff4e11b09ab69717fc41ac

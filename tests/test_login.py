@@ -20,13 +20,13 @@ class TestLogin:
         login_page.enter_password(read_config("DEFAULT", "password"))
         login_page.click_login()
 
-<<<<<<< HEAD
+
         # ✅ handle popup if appears
         login_page.handle_change_password_popup()
 
-=======
+
         # login_page.handle_change_password_popup()
->>>>>>> b83f474a50440dbb52ff4e11b09ab69717fc41ac
+
         success_message = login_page.get_success_message()
         self.logger.info("Captured success message: " + success_message)
 
